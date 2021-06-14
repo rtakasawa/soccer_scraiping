@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 
 class Nishigaoka < ApplicationRecord
-  validates :match_day, null: false, uniqueness: true
+  validates :match_day, null: false, uniquness: true
   validates :contents, null: false
 
   def self.scraiping
