@@ -2,9 +2,6 @@ require 'open-uri'
 require 'nokogiri'
 
 class Nishigaoka < ApplicationRecord
-  validates :match_day, null: false, uniquness: true
-  validates :contents, null: false
-
   def self.scraiping
     # 西が丘競技場のイベント情報URL
     url = 'https://www.jpnsport.go.jp/hpsc/facility/nishigaoka/tabid/1437/Default.aspx'
@@ -22,12 +19,6 @@ class Nishigaoka < ApplicationRecord
     match_info = Hash[*array]
     # 試合日をDate型に変換
     match_info.transform_keys! { |k| Date.strptime(k, '%Y/%m/%d') }
-
-    match_info.each_pair do |key, value|
-      nishigaoka = Nishigaoka.new
-      nishigaoka.match_day = key
-      nishigaoka.contents = value
-      nishigaoka.save!
-    end
+    match_info
   end
 end
