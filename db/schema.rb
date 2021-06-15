@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_043530) do
+ActiveRecord::Schema.define(version: 2021_06_14_203434) do
 
   create_table "nishigaokas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "match_day", null: false
@@ -18,12 +18,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_043530) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["match_day"], name: "index_nishigaokas_on_match_day", unique: true
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
