@@ -65,3 +65,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # スクレイピング用
 gem 'open-uri'
 gem 'nokogiri'
+
+# linebot用
+gem 'line-bot-api'
+
+# access_token管理用
+gem 'dotenv-rails'
