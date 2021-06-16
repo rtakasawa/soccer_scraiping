@@ -1,3 +1,5 @@
+# ローカルでのwhenever練習用：本番では使用しない
+
 # 出力先のログファイルを指定
 set :output, 'log/crontab.log'
 # ジョブの実行環境の指定

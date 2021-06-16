@@ -27,7 +27,7 @@ class Nishigaoka < ApplicationRecord
       nishigaoka = Nishigaoka.new
       nishigaoka.match_day = key
       nishigaoka.contents = value
-      nishigaoka.save!
+      nishigaoka.save
     end
   end
 end
