@@ -71,3 +71,6 @@ gem 'line-bot-api'
 
 # access_token管理用
 gem 'dotenv-rails', groups: [:development, :test]
+
+# 定期実行用
+gem 'whenever', require: false
