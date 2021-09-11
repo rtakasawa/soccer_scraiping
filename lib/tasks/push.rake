@@ -1,6 +1,9 @@
 namespace :push_line do
   desc "push_line"
 
+  require_relative '/Users/suketa/workspace/self/TIL/nishigaoka_app/app/models/concerns/linebot.rb'
+  include LineBot
+
   # 【毎日7時に実行】試合情報のスクレイピング&試合情報が追加されたらline通知
   task scraiping_and_add_new_match: :environment do
     Nishigaoka.scraiping
@@ -20,10 +23,8 @@ namespace :push_line do
       type: 'text',
       text: "【追加されて試合日程】\n" << push_messages
     }
-    client = Line::Bot::Client.new do |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-    end
+
+    client = line_bot_client_info
 
     response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
     p response
@@ -52,10 +53,8 @@ namespace :push_line do
       type: 'text',
       text: "【今月の試合日程】\n" << this_month_push_message
     }
-    client = Line::Bot::Client.new do |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-    end
+
+    client = line_bot_client_info
 
     response = client.push_message(ENV["LINE_CHANNEL_USER_ID"], message)
     p response
