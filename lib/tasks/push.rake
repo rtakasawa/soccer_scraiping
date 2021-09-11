@@ -1,8 +1,9 @@
+
 namespace :push_line do
   desc "push_line"
 
-  require_relative '/Users/suketa/workspace/self/TIL/nishigaoka_app/app/models/concerns/linebot.rb'
-  include LineBot
+  require './app/helpers/linebot_helper'
+  include LinebotHelper
 
   # 【毎日7時に実行】試合情報のスクレイピング&試合情報が追加されたらline通知
   task scraiping_and_add_new_match: :environment do
