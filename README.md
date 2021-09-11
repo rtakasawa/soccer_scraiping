@@ -11,6 +11,10 @@
 ## その他
 - herokuのアドオン機能で、定期実行を実施
 - line通知はLineメッセンジャーを使用
+- ローカルでのデバッグ時のコマンド  
+```
+$ rails push_line:scraiping_and_add_new_match      
+```
 
 ## 参考
 - https://developers.line.biz/console/
